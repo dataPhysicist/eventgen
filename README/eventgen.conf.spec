@@ -290,6 +290,7 @@ bundlelines = true | false
     * Will override any breaker setting.
     
 hourOfDayRate = <json>
+    * Only valid in mode = sample
     * Takes a JSON hash of 24 hours with float values to rate limit how many events we should see
       in a given hour.
     * Sample JSON:
@@ -298,6 +299,7 @@ hourOfDayRate = <json>
     * Also multiplied times dayOfWeekRate, minuteOfHourRate, dayOfMonthRate, monthOfYearRate
 
 dayOfWeekRate = <json>
+    * Only valid in mode = sample
     * Takes a JSON hash of 7 days of the week in Splunk format (0 is Sunday)
     * Sample JSON:
       { "0": 0.55, "1": 0.97, "2": 0.95, "3": 0.90, "4": 0.97, "5": 1.0, "6": 0.99 }
@@ -305,6 +307,7 @@ dayOfWeekRate = <json>
     * Also multiplied times hourOfDayRate, minuteOfHourRate, dayOfMonthRate, monthOfYearRate
 
 minuteOfHourRate = <json>
+    * Only valid in mode = sample
     * Takes a JSON hash of 60 minutes of an hour, starting with 0
     * Sample JSON:
       { "0": 1, "2": 1...}
@@ -312,6 +315,7 @@ minuteOfHourRate = <json>
     * Also multiplied times dayOfWeekRate, hourOfDateRate, dayOfMonthRate, monthOfYearRate
 
 dayOfMonthRate = <json>
+    * Only valid in mode = sample
     * Takes a JSON hash of 31 days of the month, starting with 1
     * Sample JSON:
       { "1": 1, "2": 1...}
@@ -319,6 +323,7 @@ dayOfMonthRate = <json>
     * Also multiplied times dayOfWeekRate, hourOfDateRate, minuteOfHourRate, monthOfYearRate
 
 monthOfYearRate = <json>
+    * Only valid in mode = sample
     * Takes a JSON hash of 60 minutes of an hour, starting with 0
     * Sample JSON:
       { "0": 1, "2": 1...}
@@ -333,7 +338,6 @@ randomizeCount = <float>
 randomizeEvents = <boolean>
     * Will randomize the events found in the sample file before choosing the events.
     * NOT SUPPORTED WITH sampletype csv
-    * NOT SUPPORTED WITH mode = replay OR custom generators like generator = replay
     
 breaker = <regular expression>
     * NOT to be confused w/ props.conf LINE_BREAKER.
